@@ -34,7 +34,7 @@ public class Lanzar extends Command {
 	protected void end() {
 		// TODO Auto-generated method stub
 		Robot.succion.setSuccionDrive(1.0);
-		Robot.servoL.lanzarServo(170);
+		Robot.servoL.lanzarServo(60);
 
 	}
 
