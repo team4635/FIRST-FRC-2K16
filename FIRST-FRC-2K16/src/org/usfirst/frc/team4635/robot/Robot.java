@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4635.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Command;
@@ -30,6 +31,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
     Command autonomousCommand;
+    CameraServer server1;
+
     //Command controlPWM;
     
     public static DriveTrain drivetrain;
@@ -58,10 +61,18 @@ public class Robot extends IterativeRobot {
         ventana = new Ventana();
         servoL = new ServoL();
         oi = new OI();
+        
+        server1 = CameraServer.getInstance();
+        server1.setQuality(30);
+        server1.startAutomaticCapture("cam2");
+
        
         
         // instantiate the command used for the autonomous period
-        autonomousCommand = new Autonomous();
+        
+        //autonomousCommand = new Autonomous();
+        autonomousCommand = new AutonomoDerecho();
+
         //controlPWM = new ControlPWM();
 
         // Show what command your subsystem is running on the SmartDashboard

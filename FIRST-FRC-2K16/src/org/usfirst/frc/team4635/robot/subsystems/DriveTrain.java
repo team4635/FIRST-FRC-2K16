@@ -32,7 +32,7 @@ public class DriveTrain extends Subsystem {
 	
 	private Encoder left_encoder, right_encoder;
 	private AnalogInput rangefinder;
-	private AnalogGyro gyro;
+	//private AnalogGyro gyro;
 	public static double vMax=1.0;
 
 	public DriveTrain() {
@@ -68,7 +68,7 @@ public class DriveTrain extends Subsystem {
 		}
 
 		rangefinder = new AnalogInput(6);
-		gyro = new AnalogGyro(1);
+		//gyro = new AnalogGyro(1);
 
 		// Let's show everything on the LiveWindow
 		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) front_left_motor);
@@ -97,7 +97,7 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("Right Distance", right_encoder.getDistance());
 		SmartDashboard.putNumber("Left Speed", left_encoder.getRate());
 		SmartDashboard.putNumber("Right Speed", right_encoder.getRate());
-		SmartDashboard.putNumber("Gyro", gyro.getAngle());
+		//SmartDashboard.putNumber("Gyro", gyro.getAngle());
 	}
 
 	/**
@@ -105,6 +105,11 @@ public class DriveTrain extends Subsystem {
 	 * @param left Speed in range [-1,1]
 	 * @param right Speed in range [-1,1]
 	 */
+	
+	public void driveAuto(double outputMagnitude, double curve){
+		drive.drive(outputMagnitude, curve);
+	}
+	
 	public void drive(double left, double right) {
 		drive.tankDrive(left, right);
 	}
@@ -144,14 +149,14 @@ public class DriveTrain extends Subsystem {
 
 	/**
 	 * @return The robots heading in degrees.
-	 */
+	 
 	public double getHeading() {
 		return gyro.getAngle();
 	}
 
 	/**
 	 * Reset the robots sensors to the zero states.
-	 */
+	 
 	public void reset() {
 		gyro.reset();
 		left_encoder.reset();
