@@ -11,17 +11,17 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutonomoDerecho extends Command {
+public class Autonomo60 extends Command {
 	final int gyroChannel = 1; //analog input
-    double angleSetpoint = 0.0;
+    double angleSetpoint = 60.0;
     final double pGain = .006; //propotional turning constant
     final double voltsPerDegreePerSecond = .0128; 
     AnalogGyro gyro;
 
 	
-	public AutonomoDerecho() {
+	public Autonomo60() {
 		requires(Robot.drivetrain);
-		setTimeout(3.0);
+		setTimeout(2.0);
 		gyro = new AnalogGyro(gyroChannel);
 
 	}

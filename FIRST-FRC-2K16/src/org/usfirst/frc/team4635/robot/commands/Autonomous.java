@@ -20,6 +20,12 @@ public class Autonomous extends CommandGroup {
         addParallel(new SetWristSetpoint(-45));
         addSequential(new CloseClaw());
         **/
+    	addSequential(new AutonomoBajarDisparador());
+    	addSequential(new AutonomoDerecho());
+    	addSequential(new Autonomo60());
+    	addSequential(new AutonomoSubirDisparador());
+    	addSequential(new ServoEmpujar());
+    	addSequential(new Lanzar());
     	
     }
 }
