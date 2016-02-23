@@ -10,9 +10,12 @@ package org.usfirst.frc.team4635.robot;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+
 import org.usfirst.frc.team4635.robot.commands.Autonomous;
 import org.usfirst.frc.team4635.robot.commands.ControlPWM;
 import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
@@ -32,20 +35,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	Command autonomousCommand;
     CameraServer server1;
-
-    //Command controlPWM;
+    //NetworkTable table; 
+    
     
     public static DriveTrain drivetrain;
-    //public static Elevator elevator;
-    //public static Wrist wrist;
-    //public static Claw claw;
-    //public static Lanzamiento lanzamiento;
     public static SuccionLanzamiento succion;
     public static Ventana ventana;
     public static ServoL servoL;
     public static OI oi;
     
-
+    public Robot(){
+    	//table = NetworkTable.getTable("GRIP/myContoursReport");
+    }
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -53,10 +54,6 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         // Initialize all subsystems
         drivetrain = new DriveTrain();
-        //elevator = new Elevator();
-        //wrist = new Wrist();
-        //claw = new Claw();
-        //lanzamiento = new Lanzamiento();
         succion = new SuccionLanzamiento();
         ventana = new Ventana();
         servoL = new ServoL();
@@ -64,19 +61,18 @@ public class Robot extends IterativeRobot {
         
         server1 = CameraServer.getInstance();
         server1.setQuality(30);
-        server1.startAutomaticCapture("cam2");
+        server1.startAutomaticCapture("cam3"); 
+        
 
        
         
         // instantiate the command used for the autonomous period
         
-        //autonomousCommand = new Autonomous();
+        
         autonomousCommand = new Autonomous();
 
-        //controlPWM = new ControlPWM();
-
         // Show what command your subsystem is running on the SmartDashboard
-        SmartDashboard.putData(drivetrain);
+        //SmartDashboard.putData(drivetrain);
         //SmartDashboard.putData(elevator);
         //SmartDashboard.putData(wrist);
         //SmartDashboard.putData(claw);
@@ -108,7 +104,6 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         log();
-        //controlPWM.start();
 
     }
     
@@ -116,13 +111,24 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();
+        LiveWindow.run();/*
+        //llenar tabla del Reporte de Contour
+        double [] defaultValue = new double[0];
+        	double [] areas = table.getNumberArray("area", defaultValue);
+        	System.out.println("areas: " );
+        	for (double area : areas) {
+        		System.out.print(area + " ");
+        	}
+        	System.out.println();
+        	//Timer.delay(.03);*/
+
     }
 
 	/**
 	 * The log method puts interesting information to the SmartDashboard.
 	 */
     private void log() {
+    	
         //wrist.log();
         //elevator.log();
         //drivetrain.log();

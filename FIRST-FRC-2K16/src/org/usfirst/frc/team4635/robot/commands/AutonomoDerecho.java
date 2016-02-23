@@ -20,7 +20,7 @@ public class AutonomoDerecho extends Command {
 	
 	public AutonomoDerecho() {
 		requires(Robot.drivetrain);
-		setTimeout(3.0);
+		setTimeout(1.3);
 		//gyro = Robot.oi.getGyro();
 		gyro=Robot.oi.gyro;
 
@@ -37,7 +37,8 @@ public class AutonomoDerecho extends Command {
 	protected void execute() {
 		// TODO Auto-generated method stub
         double turningValue =  (angleSetpoint - gyro.getAngle())*pGain;
-		Robot.drivetrain.driveAuto(0.6, turningValue);
+		//Robot.drivetrain.driveAuto(-0.5, turningValue);
+		Robot.drivetrain.driveAuto(-0.5, turningValue);
         Timer.delay(0.004);				
 
 	}

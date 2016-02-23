@@ -24,6 +24,7 @@ public class ServoEmpujar extends Command {
 
 	protected void execute() {
 		// TODO Auto-generated method stub
+		Robot.servoL.lanzarVex(0.5);
 
 	}
 
@@ -34,9 +35,7 @@ public class ServoEmpujar extends Command {
 
 	protected void end() {
 		// TODO Auto-generated method stub
-		//Robot.servoL.lanzarServo(170);
-		Robot.servoL.lanzarServo(60);
-
+		//Robot.servoL.lanzarServo(60);
 
 	}
 

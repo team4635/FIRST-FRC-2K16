@@ -7,7 +7,7 @@ public class AutonomoBajarDisparador extends Command {
 	
 	public AutonomoBajarDisparador() {
 		requires(Robot.ventana);
-		setTimeout(3.0);
+		setTimeout(0.67);
 	}
 	
 	protected void initialize() {
@@ -18,7 +18,7 @@ public class AutonomoBajarDisparador extends Command {
 
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.ventana.setMotorVentana(-.7);
+		Robot.ventana.setMotorVentana(1.0);
 
 	}
 
