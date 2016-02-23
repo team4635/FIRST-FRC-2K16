@@ -15,10 +15,12 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class ServoL extends Subsystem {
 	private Servo servoLanzar;
+	private Servo servoLanzar2;
 
     public ServoL() {
         super();
         servoLanzar=new Servo(7);
+        servoLanzar2= new Servo(8);
         }
 
     public void initDefaultCommand() {
@@ -28,5 +30,6 @@ public class ServoL extends Subsystem {
 
     public void lanzarServo(int angulo){
     	servoLanzar.setAngle(angulo);
+    	servoLanzar2.setAngle(-angulo);
     }  
 }

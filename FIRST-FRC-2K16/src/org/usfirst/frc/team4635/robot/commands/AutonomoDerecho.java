@@ -2,7 +2,6 @@ package org.usfirst.frc.team4635.robot.commands;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 
-import org.usfirst.frc.team4635.robot.Gyro;
 import org.usfirst.frc.team4635.robot.OI;
 import org.usfirst.frc.team4635.robot.Robot;
 import org.usfirst.frc.team4635.robot.subsystems.DriveTrain;
@@ -12,7 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class AutonomoDerecho extends Command {
-	final int gyroChannel = 1; //analog input
+	//final int gyroChannel = 1; //analog input
     double angleSetpoint = 0.0;
     final double pGain = .006; //propotional turning constant
     final double voltsPerDegreePerSecond = .0128; 
@@ -22,7 +21,8 @@ public class AutonomoDerecho extends Command {
 	public AutonomoDerecho() {
 		requires(Robot.drivetrain);
 		setTimeout(3.0);
-		gyro = new AnalogGyro(gyroChannel);
+		//gyro = Robot.oi.getGyro();
+		gyro=Robot.oi.gyro;
 
 	}
 	

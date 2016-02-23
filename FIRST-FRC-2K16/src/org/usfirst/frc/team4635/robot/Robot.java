@@ -30,7 +30,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-    Command autonomousCommand;
+	Command autonomousCommand;
     CameraServer server1;
 
     //Command controlPWM;
@@ -71,7 +71,7 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         
         //autonomousCommand = new Autonomous();
-        autonomousCommand = new AutonomoDerecho();
+        autonomousCommand = new Autonomous();
 
         //controlPWM = new ControlPWM();
 

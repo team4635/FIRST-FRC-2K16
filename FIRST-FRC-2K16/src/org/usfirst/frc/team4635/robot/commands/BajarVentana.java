@@ -22,7 +22,7 @@ public class BajarVentana extends Command {
 
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.ventana.setMotorVentana(-.7);
+		Robot.ventana.setMotorVentana(-1.0);
 
 	}
 
