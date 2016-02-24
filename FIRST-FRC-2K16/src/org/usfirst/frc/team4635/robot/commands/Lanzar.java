@@ -14,7 +14,7 @@ public class Lanzar extends Command {
 	public Lanzar() {
 		requires(Robot.succion);
 		//requires(Robot.servoL);
-		setTimeout(4);
+		setTimeout(4.0);
 	}
 	
 	protected void initialize() {
@@ -24,9 +24,12 @@ public class Lanzar extends Command {
 
 	protected void execute() {
 		// TODO Auto-generated method stub
+		Robot.succion.setSuccionDrive(-1.0);/*
+		Timer.delay(2.0);
 		Robot.succion.setSuccionDrive(-1.0);
-		//Timer.delay(2.5);
-		//Robot.servoL.lanzarServo(0);
+		Robot.servoL.lanzarVex(0.3);
+		Timer.delay(1.4);*/
+		
 	}
 
 	protected boolean isFinished() {
@@ -37,7 +40,8 @@ public class Lanzar extends Command {
 	protected void end() {
 		// TODO Auto-generated method stub
 		Robot.succion.setSuccionDrive(0.0);
-		Robot.servoL.lanzarServo(0);
+		//Robot.servoL.lanzarServo(0);
+		//Robot.servoL.lanzarVex(0.0);
 
 	}
 

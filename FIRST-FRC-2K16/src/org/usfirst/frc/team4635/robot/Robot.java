@@ -35,7 +35,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	Command autonomousCommand;
     CameraServer server1;
-    //NetworkTable table; 
+    NetworkTable table; 
     
     
     public static DriveTrain drivetrain;
@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
     public static OI oi;
     
     public Robot(){
-    	//table = NetworkTable.getTable("GRIP/myContoursReport");
+    	table = NetworkTable.getTable("GRIP/myContoursReport");
     }
     /**
      * This function is run when the robot is first started up and should be
@@ -104,24 +104,25 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         log();
-
+      //llenar tabla del Reporte de Contour
+        double [] defaultValue = new double[0];
+        	double [] areas = table.getNumberArray("area", defaultValue);
+        	
+        	System.out.println("areas: " );
+        	for (double area : areas) {
+        		System.out.print(area + " ");
+        		//SmartDashboard.putNumber("areas", area);
+        	}
+        	System.out.println();
+        	//Timer.delay(.03);
     }
     
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();/*
-        //llenar tabla del Reporte de Contour
-        double [] defaultValue = new double[0];
-        	double [] areas = table.getNumberArray("area", defaultValue);
-        	System.out.println("areas: " );
-        	for (double area : areas) {
-        		System.out.print(area + " ");
-        	}
-        	System.out.println();
-        	//Timer.delay(.03);*/
-
+        LiveWindow.run();
+        
     }
 
 	/**

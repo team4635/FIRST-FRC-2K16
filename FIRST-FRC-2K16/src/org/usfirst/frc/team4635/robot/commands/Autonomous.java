@@ -24,8 +24,10 @@ public class Autonomous extends CommandGroup {
     	addSequential(new AutonomoDerecho());
     	addSequential(new Autonomo60());
     	addSequential(new AutonomoSubirDisparador());
-    	addSequential(new ServoEmpujar());
-    	addSequential(new Lanzar());
+    	addParallel(new Lanzar());
+    	addSequential(new ServoDelay());
+    	addSequential(new ServoSubir());
+    	addSequential(new ServoBajar());
     	
     }
 }

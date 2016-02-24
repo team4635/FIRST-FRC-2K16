@@ -46,8 +46,10 @@ public class OI {
         btnXPiloto.whenPressed(new BajarVentana());
         btnXPiloto.whenReleased(new PararVentana());
         
-        btnYPiloto.whenPressed(new Lanzar());
-        btnYPiloto.whenPressed(new ServoEmpujar());
+        //btnYPiloto.whenPressed(new Lanzar());
+        //btnYPiloto.whenPressed(new ServoEmpujar());
+        btnYPiloto.whenPressed(new LanzarTodo());
+        //btnYPiloto.whenReleased(new ServoEmpujarBajar());
         btnBumperIzqPiloto.whileHeld(new RotarIzquierda());
         btnBumperDerPiloto.whileHeld(new RotarDerecha());
     }
