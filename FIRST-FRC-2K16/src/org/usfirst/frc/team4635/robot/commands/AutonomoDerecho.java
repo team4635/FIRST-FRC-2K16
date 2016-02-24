@@ -39,7 +39,7 @@ public class AutonomoDerecho extends Command {
         double turningValue =  (angleSetpoint - gyro.getAngle())*pGain;
 		//Robot.drivetrain.driveAuto(-0.5, turningValue);
 		Robot.drivetrain.driveAuto(-0.5, turningValue);
-        Timer.delay(0.004);				
+        //Timer.delay(0.004);				
 
 	}
 

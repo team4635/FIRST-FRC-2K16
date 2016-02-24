@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Autonomo60 extends Command {
 	//final int gyroChannel = 1; //analog input
     //double angleSetpoint = 240.0;
-    double angleSetpoint = 240.0;
+    double angleSetpoint = 90.0;
     final double pGain = .006; //propotional turning constant
     final double voltsPerDegreePerSecond = .0128; 
     AnalogGyro gyro;
@@ -21,7 +21,7 @@ public class Autonomo60 extends Command {
 	
 	public Autonomo60() {
 		requires(Robot.drivetrain);
-		setTimeout(2.0);
+		setTimeout(5.0);
 		//gyro = Robot.oi.getGyro();
 		gyro=Robot.oi.gyro;
 
@@ -43,7 +43,7 @@ public class Autonomo60 extends Command {
         if(turningValue!=0){
         	Robot.drivetrain.drive(0.6,-0.6);
         }
-        Timer.delay(0.004);				
+        //Timer.delay(0.004);				
 
 	}
 

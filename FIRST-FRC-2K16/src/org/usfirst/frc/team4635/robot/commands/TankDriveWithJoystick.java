@@ -19,7 +19,7 @@ public class TankDriveWithJoystick extends Command {
     //Joystick joy = Robot.oi.getJoystick();
     public TankDriveWithJoystick() {
         requires(Robot.drivetrain);
-		//requires(Robot.pistones);
+		//requires(Robot.ventana);
 
     }
 
@@ -58,14 +58,8 @@ public class TankDriveWithJoystick extends Command {
 		if(joy.getPOV()==270){
 			Robot.drivetrain.vMax=0.8;
 		}
-		/**
-		//Para controlar el levantamiento
-		if(joyCopiloto.getPOV()==0){
-			 Robot.pistones.levantar();
-		}
-		if(joyCopiloto.getPOV()==180){
-			 Robot.pistones.bajar();
-		}**/
+		//Robot.ventana.setMotorVentana(joyCopiloto.getRawAxis(3));
+		//Robot.ventana.setMotorVentana(-joyCopiloto.getRawAxis(2));
     }
 
     // Make this return true when this Command no longer needs to run execute()

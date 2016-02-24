@@ -107,7 +107,7 @@ public class Robot extends IterativeRobot {
       //llenar tabla del Reporte de Contour
         double [] defaultValue = new double[0];
         	double [] areas = table.getNumberArray("area", defaultValue);
-        	
+        	System.out.println("Length: "+areas.length);
         	System.out.println("areas: " );
         	for (double area : areas) {
         		System.out.print(area + " ");

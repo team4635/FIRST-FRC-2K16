@@ -2,6 +2,8 @@
 package org.usfirst.frc.team4635.robot;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.AnalogOutput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team4635.robot.commands.*;
@@ -16,7 +18,9 @@ public class OI {
     private Joystick joy = new Joystick(0);
     private Joystick joyCopiloto = new Joystick(1);
     public AnalogGyro gyro = new AnalogGyro(1);
+    //private AnalogOutput leds = new AnalogOutput(1);
     public OI() {
+    	//leds.setVoltage(3.0);
     	// Put Some buttons on the SmartDashboard
        
         

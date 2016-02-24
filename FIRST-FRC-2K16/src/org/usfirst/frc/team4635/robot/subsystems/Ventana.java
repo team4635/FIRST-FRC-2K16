@@ -23,6 +23,7 @@ public class Ventana extends Subsystem {
     
     public void setMotorVentana(double velocidad){
     	motorVentana.set(velocidad);
+    	
 	}
     
     

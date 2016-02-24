@@ -1,13 +1,17 @@
 package org.usfirst.frc.team4635.robot.commands;
 
 import org.usfirst.frc.team4635.robot.Robot;
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class AutonomoBajarDisparador extends Command {
-	
+	double pastTime;
+	double currentTime;
 	public AutonomoBajarDisparador() {
 		requires(Robot.ventana);
-		setTimeout(0.67);
+		//setTimeout(2.2);
+		pastTime = Timer.getFPGATimestamp() + 2.2;
 	}
 	
 	protected void initialize() {
@@ -24,7 +28,13 @@ public class AutonomoBajarDisparador extends Command {
 
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		return isTimedOut();
+		currentTime = Timer.getFPGATimestamp();
+		if(currentTime > pastTime)
+			return true;
+		else
+			return false;
+		
+		//return isTimedOut();
 		//return false;
 	}
 
